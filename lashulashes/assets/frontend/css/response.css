@@ -1,0 +1,493 @@
+/*screen response*/
+@media (orientation:landscape) and (max-width: 767px) {
+	
+	/*.charity_title p {
+		display: none;
+	}
+	
+	.charity_title h2 {
+		padding-top: 25px;
+	}
+	*/
+}
+
+@media (orientation:portrait) and (max-width: 767px) {
+	/*
+	.membership_detail_con {
+		height: 100vh;
+	}
+	
+	.membership_detail_con .col-xs-6 {
+		width: 100%;
+	}
+	
+	.about_container .col-xs-4,
+	.about_container .col-xs-8 {
+		width: 100%;
+	}
+	
+	.charity_text {
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	.charity_container_sub {
+		overflow-y: hidden;
+		overflow-x: scroll;
+		height: 140px;
+		margin-bottom: 15px;
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	.team_text_wrapper{
+		height: calc(100% - 476px);
+	}
+	
+	.team_single_wrapper {
+		margin-bottom: 0;
+	}
+	
+	.charity_wrapper .tab-content .tab-pane{
+		height: calc(100% - 306px);
+		width: 100%;
+	}
+	
+	.charity_container .nav {
+		height: 122px;
+		max-height: none;
+		width: 390vw;
+		overflow-x: auto;
+		overflow-y: hidden;
+		margin-bottom: 0;
+	}
+	
+	.charity_container .nav > li {
+		height: 122px;
+		float: left;
+		width: 75vw;
+		margin-right: 15px;
+	}
+	
+	.team_wrapper .col-xs-4 {
+		width: 100%;
+	}
+	*/
+	
+	/* about_us */
+
+	.team_list {
+		height: 158px;
+		overflow-x:scroll;
+		overflow-y: hidden;
+	}
+	
+	.team_list_right {
+		direction:rtl;
+	}
+	
+	.team_list_left .team_single_wrapper {
+		float: left;
+		width: 75vw;
+	}
+	
+	.team_list_right .team_single_wrapper {
+		float: right;
+		width: 75vw;
+	}
+	
+	.charity_title h2{
+		margin: 0!important;
+		font-size: 1.5em;
+		line-height: 1em;
+	}
+	
+	.team_list_sub {
+		width: 400vw;
+	}
+	
+	.show_v {
+		display: block;
+	}
+	
+	.hide_v {
+		display: none;
+	}
+	
+	.training_detail_sub h1 strong:after{
+	    content:"\a";
+		white-space: pre;
+	}
+	
+	.training_detail_sub h4 small:before{
+	    content:"\a";
+		white-space: pre;
+	}
+	
+	.training_detail_sub .white h1 {
+		font-size: 1.75em;
+	}
+	
+}
+
+@media (max-width: 767px) {
+	
+/* membership	 */
+
+	.membership {
+		height: auto;
+	}
+
+	.membership_div {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+	
+	.membership_1 {
+		left: auto;
+		top: auto;
+		text-align: left;
+	}
+
+	.membership_2 {
+		left: auto;
+		top: auto;
+	}
+	
+	.membership_3 {
+		left: auto;
+		top: auto;
+		text-align: left;
+	}
+	
+	.membership_4 {
+		left: auto;
+		top: auto;
+	}
+	
+	.membership_div > a > img {
+		position: relative;
+		width: 100%;
+		height: auto;
+		filter: brightness(50%);
+		-webkit-filter: brightness(50%);
+		-moz-filter: brightness(50%);
+		-o-filter: brightness(50%);
+		-ms-filter: brightness(50%);
+		-webkit-transition:all 0.75s ease;
+		-moz-transition:all 0.75s ease;
+		-ms-transition:all 0.75s ease;
+		-o-transition:all 0.75s ease;
+		transition:all 0.75s ease;
+	}
+	
+/* 	gellery */
+	.gallery_photo {
+		width: 100px;
+	}
+	
+	.galler_thumb_photo {
+		width: 80%;
+		height: 80%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+	}
+	
+	.galler_thumb_photo img {
+		height: auto;
+		width: 100%;
+	}
+	
+	.gallery_back > img {
+		height: 100%;
+		width: auto;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+	}
+
+/* header */
+	
+	.navigation > ul {
+		text-align: left;
+		left: 0;
+		padding-left: 0;
+		width: 100vw;
+		padding-top: 68px;
+		z-index: 5;
+		height: auto;
+	}
+	
+	.navigation > ul > li {
+		float: none;
+		font-size: 1em;
+		line-height: 1em;
+		border-top: solid 3px rgba(0,0,0,0);
+		height: auto;
+		width: 100vw;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	
+	.navigation > ul > li > a {
+	    line-height:2em;
+	}
+	
+	.navigation > ul > li.nav_logo {
+		display: none;
+	}
+	
+	.navigation > ul > li > ul {
+		float: none;
+		position: relative;
+		z-index: 50;
+		left: auto;
+	}
+	
+	.navigation > ul > li > ul > li {
+		float: none;
+		position: relative;
+		text-align: left;
+		height: auto;
+		z-index: 50;
+	}
+	
+	.navigation > ul > li > ul.right {
+		float: none;
+		position: relative;
+		z-index: 50;
+		right: auto;
+	}
+	
+	.navigation > ul > li > ul.right > li {
+		float: none;
+		text-align: left;
+	}
+	
+	.site_header {
+		box-shadow: 0px 1px 10px black;
+	}
+	
+	.navigation > ul > li:hover > ul {
+    	max-height: 242px;
+	}
+	
+	.navigation > ul > li:hover > a {
+	    font-weight: bold;
+	}
+	
+/* 	training */
+	
+	.training_thumb {
+		display: none;
+	}
+	
+	.training_detail {
+		left: 0;
+		width: 100%;
+	}
+	
+	.training_detail_sub .container {
+		max-width: 100%;
+	}
+
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	
+/* 	gellery */
+	
+	.galler_thumb_photo {
+		width: 80%;
+		height: 80%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+	}
+	
+	.galler_thumb_photo img {
+		height: auto;
+		width: 100%;
+	}
+	
+	.gallery_back > img {
+		height: 100%;
+		width: auto;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+	}
+
+/* header */
+
+	.navigation > ul {
+		text-align: left;
+		left: 0;
+		padding-left: 0;
+		width: 100vw;
+		padding-top: 68px;
+		z-index: 5;
+		height: auto;
+	}
+	
+	.navigation > ul > li {
+		float: none;
+		font-size: 1em;
+		line-height: 1em;
+		border-top: solid 3px rgba(0,0,0,0);
+		height: auto;
+		width: 100vw;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	
+	.navigation > ul > li:hover > a {
+	    font-weight: bold;
+	}
+	
+	.navigation > ul > li > a {
+	    line-height:2em;
+	}
+	
+	.navigation > ul > li.nav_logo {
+		display: none;
+	}
+	
+	.navigation > ul > li > ul {
+		float: none;
+		position: relative;
+		z-index: 50;
+		left: auto;
+	}
+	
+	.navigation > ul > li > ul > li {
+		float: none;
+		position: relative;
+		text-align: left;
+		height: auto;
+		z-index: 50;
+	}
+	
+	.navigation > ul > li > ul.right {
+		float: none;
+		position: relative;
+		z-index: 50;
+		right: auto;
+	}
+	
+	.navigation > ul > li > ul.right > li {
+		float: none;
+		text-align: left;
+	}
+	
+	.site_header {
+		box-shadow: 0px 1px 10px black;
+	}
+	
+	.navigation > ul > li:hover > ul {
+    	max-height: 242px;
+	}
+	
+/* 	training */
+	
+	.training_thumb {
+		display: none;
+	}
+	
+	.training_detail {
+		left: 0;
+		width: 100%;
+	}
+	
+	.training_detail_sub .container {
+		max-width: 100%;
+	}
+	
+	.team_list_left .team_single_wrapper:first-child{
+		border-top-left-radius: 35px;
+		border-top: 5px solid #FE4AB4;
+	}
+	
+	.team_list_left .team_single_wrapper:last-child{
+		border-bottom-left-radius: 35px;
+		border-bottom: 5px solid #FE4AB4;
+	}
+	
+	
+	.team_list_right .team_single_wrapper:first-child{
+		border-top-right-radius: 35px;
+		border-top: 5px solid #FE4AB4;
+	}
+	
+	.team_list_right .team_single_wrapper:last-child{
+		border-bottom-right-radius: 35px;
+		border-bottom: 5px solid #FE4AB4;
+	}
+	
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	
+	.team_list_left .team_single_wrapper:first-child{
+		border-top-left-radius: 35px;
+		border-top: 5px solid #FE4AB4;
+	}
+	
+	.team_list_left .team_single_wrapper:last-child{
+		border-bottom-left-radius: 35px;
+		border-bottom: 5px solid #FE4AB4;
+	}
+	
+	
+	.team_list_right .team_single_wrapper:first-child{
+		border-top-right-radius: 35px;
+		border-top: 5px solid #FE4AB4;
+	}
+	
+	.team_list_right .team_single_wrapper:last-child{
+		border-bottom-right-radius: 35px;
+		border-bottom: 5px solid #FE4AB4;
+	}
+
+}
+@media (min-width: 1200px) {
+	
+	.team_list_left .team_single_wrapper:first-child{
+		border-top-left-radius: 35px;
+		border-top: 5px solid #FE4AB4;
+	}
+	
+	.team_list_left .team_single_wrapper:last-child{
+		border-bottom-left-radius: 35px;
+		border-bottom: 5px solid #FE4AB4;
+	}
+	
+	
+	.team_list_right .team_single_wrapper:first-child{
+		border-top-right-radius: 35px;
+		border-top: 5px solid #FE4AB4;
+	}
+	
+	.team_list_right .team_single_wrapper:last-child{
+		border-bottom-right-radius: 35px;
+		border-bottom: 5px solid #FE4AB4;
+	}
+}

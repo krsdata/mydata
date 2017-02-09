@@ -1,0 +1,141 @@
+/***
+Anout Us Page
+***/
+.error
+{
+  color:#EC0D0D;
+}
+
+.table-responsive table th 
+{
+	text-transform: capitalize !important;
+}
+
+.portlet-title .caption 
+{
+	text-transform: capitalize !important;
+}
+
+.width_100
+{
+	width: 100% !important;
+}
+
+.modal-header 
+{
+    background: rgba(234, 1, 132, 0.46) none repeat scroll 0% 0%;
+}
+
+.font_11
+{
+	font-size: 11px;
+}
+
+ul#form_list_ li {
+  background: #EC008C;
+  padding: 2px 5px 2px 5px;
+  cursor: pointer;
+  color: #FFF;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+ul#form_list_ li:after {
+  content: "\f00d"; 
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+ul#form_list_ {
+  padding-left: 0;
+  list-style: outside none none;
+  margin-bottom: 0;
+}
+
+.cal_time_outer{
+  background-color: #f1f1f1;
+  border:1px solid #ccc;
+  /*padding: 5px;*/
+}
+  
+.cal_time_outer ul{
+    padding-left: 0;
+    font-size: 0;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #cbcbcb;
+    margin: 10px;
+    background-color: #fff;
+}
+
+.cal_time_outer ul li{
+    display: inline-block;
+    font-size: 14px;
+    width: auto;
+    padding: 10px 10px;
+}
+
+.cal_time_outer ul li input{
+  width: 80px;
+  border:1px solid #ccc;
+  padding: 2px;
+}
+
+.cal_time_col{
+  margin-bottom: 10px;
+  /*border-bottom: 1px solid #ccc;*/
+}
+.artistTab{
+  width: 100%;
+  background-color: rgb(236, 0, 140);
+  color:#FFF;
+}
+
+.artistTab .caption span{
+  color: #fff;
+}
+
+.artistTab .active .caption span{
+  color: #555;
+}
+
+.artistTab li a:hover {
+  background-color: rgba(239, 164, 208, 0.6) !important;
+  border-color: rgba(239, 164, 208, 0.6) !important;
+}
+
+.artistAddOn {
+    background-color: #ccc;
+    padding: 3px 4px 4px 4px;
+    margin: -4px;
+}
+
+.popup_add_col h5{
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 0px;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 0;
+}
+
+.popup_add_col{
+  border: 1px solid #ccc;
+  /*padding: 3px;*/
+}
+
+.popup_add_col p{
+  border-bottom: 1px solid #EAEAEA;
+  padding: 2px 5px;
+  margin-bottom: 0;
+} 
+
+.popup_add_col p:last-child{
+  border-bottom: none;
+}
+
+.word_wrap{
+  word-wrap: break-word;
+}
