@@ -1,0 +1,74 @@
+<style>
+    td{
+      border-top: none!important;
+    }
+     .table4{
+        width: 800px!important;
+        margin: 0px auto!important;
+      }  
+      
+      .table5{
+        width: 800px!important;
+        margin: 0px auto!important;
+        font-size: 12px;
+      } 
+      .table5 tr td{
+        padding: 4px;
+      }
+      .head{
+        border-bottom: 2px solid rgb(99, 95, 95);
+        font-weight: bold;
+      }
+      
+      .h4{
+        font-size: 15px;
+    font-weight: bold;
+    padding: 6px 0px 0px 0px;
+      }
+      .h5{
+        font-size: 13px;
+      }
+      .h7{
+        font-size: 9px;
+      }
+        .h1{
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .last_row
+      {
+        width: 100px;
+      }
+      .tablebottom
+      {
+        margin-bottom: 0px !important;
+        width: 100%;
+      }
+      .tablebottom tr td{
+        text-align: right;
+    padding: 0px;
+    font-weight: bold;
+     border-top: none!important;
+
+      }
+      .box{
+        border: 2px solid black;width: 120px;height: 35px;
+      }
+      .headerorder{
+        background: #3b5998;
+        text-decoration: none;
+        color: white;
+        font-size: 41px;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 62px;
+      }
+      .colored-box {
+border: 1px solid #000000;
+height: 20px;
+left: 15px;
+position: relative;
+width: 20px;
+}
+</style>

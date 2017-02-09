@@ -1,0 +1,264 @@
+<?php $restricted_para=$single_product->restricted_para;?>
+<?php $area=json_decode($restricted_para);
+      $segment= $this->uri->segment(2)?>
+     
+<div class="container">
+    <div class="span12">
+      <div class="span4">
+         
+         <div class="row-fluid">
+             <div class="span12 row-fluid" id="color_select_multi" >
+             <?php list($width, $height, $type, $attr) = getimagesize(base_url().'assets/uploads/products/'.$single_product->main_image);
+              $w_f=($width)/2.5;
+              $h_f=($height)/1.50;
+                ?>
+                 <!-- <img class="lazy" data-src="<?php echo base_url() ?>assets/uploads/products/<?php echo $single_product->main_image; ?>" src="<?php echo base_url() ?>assets/images/design-submit.gif" alt="Lazy Image"> -->
+
+               <img style="max-height:80px; max-width:80px;position: relative; left:<?php echo $w_f ?>px; top:<?php echo $h_f?>px; z-index: 1;" class="lazy" data-src="<?php echo base_url() ?>assets/uploads/products/<?php echo $single_product->main_image; ?>" src="<?php echo base_url() ?>assets/images/design-submit.gif"> 
+
+              <img src="<?php echo base_url() ?>assets/uploads/products/<?php echo $single_product->main_image; ?>" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="span7">
+        <h4>Super Sweet Products</h4><br>
+        <div id="scroll" style="width:700px;overflow-y:hidden;overflow-x:scroll; height:180px">
+        <ul>
+           <?php if($products){  $w_f1=0;$h_f1=0; foreach ($products as $row){ ?>
+                <li>
+                   <?php list($width, $height, $type, $attr) = getimagesize(base_url().'assets/uploads/products/thumbnail/'.$row->main_image);
+                      $w_f1=($width)/3.94;
+                      $h_f1=($height)/3.2;
+                        ?>
+                      
+                        <a href="<?php  echo base_url().'wear_it/'. $segment.'/'.$row->id; ?>">
+                        <img style=" max-width:25px;position: relative; left:<?php echo $w_f1 ?>px; top:<?php echo $h_f1?>px; z-index: 1;" src="<?php echo base_url() ?>assets/uploads/designs/thumbnail/<?php echo $design->design_image; ?>"/>
+                          
+                          <img style="height:150px;" title="<?php echo $row->regular_name;?>" src="<?php echo base_url() ?>assets/uploads/products/thumbnail/<?php echo $row->main_image; ?>" />
+                        <center><?php echo $row->regular_name; ?></center>
+                    </a>
+                  </li>
+          <?php }  } ?>
+          </ul>
+          </div>
+         
+            <div class="span7" >
+              <?php ?>
+               <?php echo form_open_multipart(base_url().'store/create_product_design_multi/'.$this->uri->segment(2).'/'.$this->uri->segment(3)); ?>
+                <div class="row-fluid">
+                  <div class="span6">
+                  <?php $col=0; if ($colors): ?>
+                    <div class="greenheading">Select a color</div>
+                    <?php foreach ($colors as $row): ?>
+                      <a href="javascript:void(0);"><div id="col_<?php echo $row->id;  ?>" class="color_select_multi" style=" float:left; margin-left:5px; background-color:<?php echo $row->color_code; ?>;" title="White"></div></a>
+                    <?php $col++; endforeach; ?>
+                  <?php endif; ?>
+                  </div> 
+                            
+                <div class="span11" id="sizes_div">
+                <?php if ($sizes): ?>
+                  <div class="greenheading">Select quantity for a size</div>
+                    <?php foreach ($sizes as $row1): ?>
+                    <div class="span3">
+                      <label class="span6" style="text-align:center;"><?php echo $row1->size_name; ?></label>
+                      <input class="span6 product-sizes " name="sizes_<?php echo $row1->id; ?>" min="1" type="number" value = "">
+                    </div>
+                <?php endforeach ?>                
+                  <?php endif ?>
+              </div>
+                <div class="design_title row span12"><?php echo $single_product->regular_name;?> $<?php if(!empty($single_product->price)){echo $single_product->price + $design->price;} ?>
+
+                 <input id="this_color_multi" name="this_color" type="hidden" value="">
+                    <input type="submit" name="" value="Add to cart" class="btn btn-primary btn-large pull-right" onclick="return validate_cart();">
+                 </div>
+                </div> <!-- row -->
+                  <?php echo form_close(); ?>
+
+            </div>
+          </div>
+
+           <div class="span11">
+           <div class="greenheading"><b>Product description :</b></div>
+           <div class="fontsizesmall">
+           <?php if(!empty($single_product->desc)){echo $single_product->desc;}
+           else{echo "This is an awesome product...";} ?></div></div>
+
+           <div class="row-fluid">
+           <div class="span6">
+            <div class="greenheading"><b>Comments</b></div><br>
+
+           <div class="fb-comments" data-href="<?php echo current_url() ?>" data-numposts="5" data-colorscheme="light"></div>
+           </div>
+           <div class="span6">
+            <div class="greenheading"><b>More Cool Stuf <a href="<?php echo base_url('store/designs')?>">( View All)</a></b></div><br>
+           <ul>
+            <?php if($latest_design): $i = 1; foreach ($latest_design as $row): ?>
+              <li class="span3">
+                      <img id="facebook_share<?php echo $i; ?>" slug="<?php echo $row->slug;?>" name="<?php echo $row->design_title; ?>" src="<?php echo base_url() ?>assets/uploads/designs/thumbnail/<?php echo $row->design_image; ?>" style="wi" class="imagesize"/>
+                    <div class="likesharewear">
+                    <?php ?>
+                    <div style="float:left; width:32%;">
+                        <?php get_facebook_likes(base_url().'wear_it/'.$row->id,$row->slug); //update facebook like count of design per ?>
+                        <div class="fb-like" data-href="<?php echo base_url() ?>wear_it/<?php echo $row->slug ?>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="false"></div>
+                    </div> <?php ?>
+                   <!--  <div class="shareit">
+                      <a class="shareit-at-signup" title="share on facebook" ids="facebook_share<?php echo $i; ?>" href="javascript:void(0);" ><div><i class="icon-share icon-large"></i>&nbsp;share it</div> </a>
+                    </div>
+                    <div class="shareit"> <a title="share on facebook" href="javascript:fbshare(<?php // echo $row->id; ?>)"><div id="facebook_share"><i class="icon-share icon-large"></i>&nbsp;share it</div> </a> </div>
+                    <div class="wearit"> <a href="<?php echo base_url().'wear_it/'.$row->slug; ?>" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('WearIt1','','<?php echo base_url() ?>assets/front_theme/img/wearit_hov.png',1)"><img src="<?php echo base_url() ?>assets/front_theme/img/wearit.png" alt="Wear it!" name="WearIt1" width="80" height="37" border="0" id="WearIt1" /></a></div> -->
+                </div>
+                  </li>
+              <?php $i++; endforeach; endif; ?>
+              </ul>
+           </div>
+            </div>
+      </div>
+      </div>
+
+
+
+      <style type="text/css">
+   .row-fluid [class*="span"]{
+    margin-left: 0 !important;
+  }
+
+/*  .likeit, .wearit , .shareit{
+    text-align: center !important;
+  }*/
+ .wearit {
+        float: right !important;
+        /*margin-top: 5px !important;*/
+        /*width: 50px !important;*/
+  }
+  .imagesize{
+    height: 120px;
+    max-width: 120px;
+  }
+  .description p{
+        font-size: 15px !important;
+  }
+  .shareit {
+      float: left !important;
+      font-size: 16px !important;
+      /*margin-top: 3% !important;*/
+      /*padding: 2% 0 0 0% !important;*/
+  }
+  .color_select_multi {
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    height: 20px;
+    margin: 5px;
+    width: 20px;
+}
+#scroll {
+overflow:auto;
+box-shadow:0 0 5px #E1e1e1;
+}
+#scroll ul {
+float:left;
+margin-right:-999em;
+white-space:nowrap;
+list-style:none;
+}
+#scroll li {
+margin:1px; margin-top: -33px;
+text-align:center;
+float:left;
+display:inline;  line-height: 9px;          
+}
+#scroll img {
+border:0;
+display:block;
+}
+#scroll center {
+    margin-top: 5px; font-size: 13px; 
+}
+.greenheading{
+  color: #3B5998;
+    text-transform: capitalize;
+    font-size: 14px;
+    padding: 4px;
+}
+.pricebox{
+ border: 1px solid #D6DDD6;
+margin: 0;
+padding: 10px;
+background: rgb(230, 228, 228);
+}
+.fontsizesmall{
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+</style>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $( ".color_select_multi" ).each(function( index ) {
+      if ( index == 0 )
+        $(this).trigger('click');
+      else
+        return false;
+    });
+  });
+
+  jQuery('#wear-it').click(function() {
+    $('#select_product').submit();
+  });
+</script>
+
+<script>
+ jQuery('.color_select_multi').click(function() {
+      var col = jQuery(this).attr('id');
+      var col = col.split("_");
+      if (col[1] != 0)
+      {
+        jQuery.ajax({
+              type: "POST",
+              data: { action: 'get_content',},
+              url: "<?php echo base_url() ?>store/ajax_col_imgs_multi/"+col[1]+"/<?php echo $segment?>",
+              success: function(res){
+                // alert(res);
+                var obj = jQuery.parseJSON(res);
+                if(obj.result ==='success')
+                {
+                   jQuery('#color_select_multi').html(obj.imgs);
+                }
+                else
+                {
+                  jQuery('#color_select_multi').html(obj.msg);
+                }
+              }
+        });
+
+        jQuery("#this_color_multi").val(col[1]);
+        jQuery('.color_select_multi').removeClass('its-colored');
+        jQuery(this).addClass('its-colored');
+      };
+  });
+</script>
+
+<script>
+
+
+function validate_cart () {
+
+  var valid_flag=false;  
+  $('.product-sizes').each(function(index, el) {    
+    if(valid_flag== false && el.value==''){       
+       valid_flag = false;       
+    }else{
+        valid_flag=true;
+    }
+  });
+
+  if(valid_flag==false){
+    alert('Select quantity for a size.');
+    return false;
+  }
+
+}
+
+</script>
+

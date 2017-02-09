@@ -1,0 +1,297 @@
+   <div id="main_container">
+      <div class="row-fluid ">     	
+
+        <div class="span12">
+
+
+          <div class="box paint color_0">
+            <div class="title">
+              <h4> <i class="icon-reorder"></i> <span>Order Info </span> </h4>
+            </div>
+            <!-- End .title -->
+				 <!--  -->          
+				  <div class="content">
+				  <?php if($order_user_info){ ?>
+
+
+           <div class="form-row control-group row-fluid">
+                  <label class="control-label span3" for="normal-field">Order Id                 
+                </label>
+                  <div class="controls span9">
+                   <?php if(!empty($order_user_info->order_id)) echo "#".$order_user_info->order_id ?>
+                  </div>
+              </div>
+              <div class="form-row control-group row-fluid">
+                  <label class="control-label span3" for="normal-field">Email               
+                </label>
+                  <div class="controls span9">
+                   <?php if(!empty($order_user_info->email)) echo $order_user_info->email; ?>
+                  </div>
+              </div>
+              <div class="form-row control-group row-fluid">
+                  <label class="control-label span3" for="normal-field">Phone Number               
+                </label>
+                  <div class="controls span9">
+                   <?php if(!empty($order_user_info->phone)) echo $order_user_info->phone; ?>
+                  </div>
+              </div>
+              <div class="form-row control-group row-fluid">
+                  <label class="control-label span3" for="normal-field"> <b>Billing Address</b>            
+                </label>
+             </div>
+                <div class="form-row control-group row-fluid">
+                  <label class="control-label span3" for="normal-field">User name               
+                </label>
+                  <div class="controls span9">
+                   <?php if(!empty($order_user_info->billing_name)) echo $order_user_info->billing_name; ?>
+                  </div>
+              </div>
+
+               <div class="form-row control-group row-fluid">
+                  <label class="control-label span3" for="normal-field">Billing address               
+                </label>
+                  <div class="controls span9">
+                   <?php if(!empty($order_user_info->billing_address)) echo $order_user_info->billing_address.' '.$order_user_info->city.' '.$order_user_info->state.' '.$order_user_info->country.' '.$order_user_info->zip_code; ?>
+                  </div>
+              </div>
+              <div class="form-row control-group row-fluid">
+                  <label class="control-label span6" for="normal-field"> <b>Dilevery Address</b>            
+                </label>
+             </div>
+             
+               <div class="form-row control-group row-fluid">
+                  <label class="control-label span3" for="normal-field">Recipient user               
+                </label>
+                  <div class="controls span9">
+                   <?php if(!empty($order_user_info->recipient_name)) echo $order_user_info->recipient_name; ?>
+                  </div>
+              </div>
+
+              <div class="form-row control-group row-fluid">
+                  <label class="control-label span3" for="normal-field">Dilevery address             
+                </label>
+                  <div class="controls span9">
+                   <?php if(!empty($order_user_info->delivery_address)) echo $order_user_info->delivery_address.' '.$order_user_info->shipping_city2.' '.$order_user_info->shipping_state2.' '.$order_user_info->country.' '.$order_user_info->shipping_zip2; ?>
+                  </div>
+              </div>
+              
+              <?php if($order_user_info->biling_adrs_same_2_adrs=='No'){?>
+               <div class="form-row control-group row-fluid">
+                  <label class="control-label span6" for="normal-field">Billing Address and Shipping address is same.                 
+                </label>
+                </div>
+                <?php } ?>
+
+
+               <div class="form-row control-group row-fluid">
+                  <label class="control-label span3" for="normal-field">Is Gift               
+                </label>
+                  <div class="controls span9">
+                   <?php if(!empty($order_user_info->is_gift))
+                   $gift='';
+                    $gift=$order_user_info->is_gift; 
+                   if($gift==0)
+                    echo"No";
+                  else
+                    echo"Yes";?>
+                  </div>
+              </div>
+
+               <div class="form-row control-group row-fluid">
+                  <label class="control-label span3" for="normal-field">Shipping Method              
+                </label>
+                  <div class="controls span9">
+                   <?php if(!empty($order_user_info->shipping_method))
+                   $gift='';
+                    $shipping=$order_user_info->shipping_method; 
+                   if($shipping==0)
+                    echo"Normal";
+                  else
+                    echo"Express";?>
+                  </div>
+              </div>
+
+               <div class="form-row control-group row-fluid">
+                  <label class="control-label span3" for="normal-field">Note:                
+                </label>
+                  <div class="controls span9">
+                   <?php if(!empty($order_user_info->say_something)) echo $order_user_info->say_something; 
+                   ?>
+                  </div>
+              </div>
+           
+               <table id="datatable_example" class="responsive table table-striped table-bordered" style="width:100%;margin-bottom:0; ">
+                <thead>
+                  <th>#</th>
+                  <th>Image</th>
+                  <th>Design id</th>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>size</th>
+                  <th>Color</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                </thead>
+                <tbody>
+                    <?php //print_r($order_info);
+                    if (!empty($order_info)){ ?>
+                    <?php $i=1; foreach ($order_info as $row){                     
+                            $cart_detail = json_decode($row->cart_detail);
+
+                         ?>
+                  <tr>
+                      <td><?php echo $i; ?></td>
+                      <td>
+
+                      <div class="row">
+                       <a class="fancybox" target="_blank" href="<?php echo $cart_detail->options->Path; if(!empty($cart_detail->options->Images)) echo $cart_detail->options->Images ; ?>">
+                        <img style="width:100px !important; float:left;" src="<?php echo $cart_detail->options->Path; if(!empty($cart_detail->options->Images)) echo $cart_detail->options->Images ; ?>">
+                        </a>
+                        <a class="fancybox" target="_blank" href="<?php echo $cart_detail->options->Path; if(!empty($cart_detail->options->Back_Images)) echo $cart_detail->options->Back_Images ; ?>">
+                      <img style="width:100px !important; float:left;" src="<?php echo $cart_detail->options->Path; if(!empty($cart_detail->options->Back_Images)) echo $cart_detail->options->Back_Images ; ?>">
+                      </a>
+                      </div>
+
+                      <br>
+                      <?php if(!empty($cart_detail->options->Product_id)) 
+                       $custom_uplaod_img=get_custom_uplaod_img_from_product($cart_detail->options->Product_id); 
+                      
+                      if(!empty($custom_uplaod_img)){
+                        $texts=unserialize($custom_uplaod_img->texts);
+                       
+
+                        if(!empty($texts) && is_array($texts)){
+
+                          // print_r($texts);
+                           echo '<div style="text-align:left; color:#FFF;"><a style="color:#FFF;" class="fancybox" href="#showtext'.$i.'">View Text Information</a>  </div>';
+                         
+                          echo '<div id="showtext'.$i.'" style="display:none; text-align:left;">';
+                          foreach ($texts as $row2) {
+                            echo '<strong>Text</strong>'." : ".$row2['text']; 
+                            echo "<br>";
+                            echo '<strong>Text Size</strong>'." : ".$row2['textSize'];
+                            echo "<br>";
+                            echo '<strong>Font</strong>'." : ".$row2['font'];
+                            echo "<br>";
+                            echo '<strong>Color</strong>'." : ".$row2['color'];
+                             echo "<hr>";
+                          }
+                          echo '</div>';
+                        }
+                        
+                        if($custom_uplaod_img->is_custom_uploaded){ 
+                         echo ' <div class="row text-left">';
+                          if(!empty($custom_uplaod_img->front_upload_image)){
+                           echo '<div><a class="btn btn-info" style="color:#FFF;" href="'.base_url('superadmin/download_custom_image/'.$custom_uplaod_img->front_upload_image).'" title="">Download Front Design</a></div>';
+                          }
+                           echo '<br>';
+
+                          if(!empty($custom_uplaod_img->back_upload_image)){
+                           echo '<div class="row text-left"><a class="btn btn-info" style="color:#FFF;" href="'.base_url('superadmin/download_custom_image/'.$custom_uplaod_img->back_upload_image).'" title="">Download Back Design</a></div>';
+                          }
+
+                            echo '</div>';
+
+                        }
+                      } ?>
+                       </td>
+                       <td> <?php if($get_design_id=get_design_id($row->order_id,$row->product_id))
+                      {
+                        $i=0;
+                          foreach ($get_design_id as $key ) {
+                            if($i==1){
+                              echo", ";
+                            }
+                            echo $key->design_id;
+
+                          $i++;}
+                      } ?></td>
+                      <td><?php echo $cart_detail->name; ?></td>
+                      <td><?php money_symbol(); ?><?php echo $row->price ?></td>
+                      <td><?php echo $cart_detail->options->Size ?></td>
+                      <td><div class="colored-box" style="background-color:<?php echo $cart_detail->options->Color_code ?>;"></div><?php //if(!empty($cart_detail->Color_code)) echo $cart_detail->Color_code ?></td>                                                      
+                      <td><?php echo $row->quantity ?></td>                                                      
+                      <td><?php money_symbol(); ?><?php echo $row->subtotal ?></td>
+                  </tr>              
+                <?php $i++; }  ?> 
+                <tr>
+                  <td colspan="7" style="text-align:right !important">Gross Total </td>
+                  <td> <?php money_symbol(); ?><?php echo $order_user_info->gross_amount ?></td>
+                </tr>
+                <?php if ($order_user_info->discount != 0) { ?>
+                  <tr>
+                    <td colspan="7" style="text-align:right !important">Discount</td>
+                    <td> - <?php money_symbol(); ?><?php echo $order_user_info->discount ?></td>
+                  </tr>
+                <?php } ?>
+                <tr>
+                  <td colspan="7" style="text-align:right !important">Tax </td>
+                  <td><?php money_symbol(); ?><?php echo $order_user_info->tax_amount ?></td>
+                </tr>                
+                <tr>
+                  <td colspan="7" style="text-align:right !important">Total Amount </td>
+                  <td><?php money_symbol(); ?><?php echo $order_user_info->total_amount ?></td>
+                </tr>
+                <?php echo form_open(current_url()) ?>   
+                <tr>
+                  <td colspan="7" style="text-align:right !important">Change Status </td>
+                  <td style="width:0">
+                    <?php $status = order_status_array(); ?>
+                    <select name="order_status">
+                      <option value="">Select Status</option>
+                        <?php $selected = 'selected="selected"';
+                                foreach ($status as $key => $value){
+                                  if($key == 3 || $key == 6 || $key == 7 || $key == 8 )
+                                    continue;
+                                ?>
+                                     <option <?php if($order_user_info->order_status == $key){echo $selected;} ?> value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                        <?php } ?>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="7" style="text-align:right !important"></td>
+                  <td><input type="submit" name="submit" value="submit" class="btn"></td>
+                </tr>                
+                <?php echo form_close(); ?>
+                <?php }else{ ?>
+                  <td colspan="5">Nothing found</td>
+                <?php } ?>
+                </tbody>
+               </table>            
+          <?php }else{ ?>
+			
+
+                <div class="form-row control-group row-fluid">                 
+                  <div class="controls span9">
+ 					            <label class="control-label span9"> NO Order Found.	</label>
+                  </div>
+                </div> 
+				<?php } ?>
+
+                         
+            </div>
+             <!--  -->
+
+            <!-- End row-fluid --> 
+          </div>
+          <!-- End .content --> 
+        </div>
+        <!-- End box --> 
+      </div>
+      <!-- End .span12 --> 
+    </div>
+
+    <style type="text/css">
+       .table thead th, .table tbody td{
+         text-align: center !important;
+      }
+      .colored-box{
+        border: 1px solid #000000;
+        height: 20px;
+        left: 15px;
+        position: relative;
+        width: 20px;
+      }
+    </style>
+
